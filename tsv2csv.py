@@ -16,13 +16,6 @@ def convert_file():
 	if args.o:
 		outputfile = args.o
 
-	# use 'with' if the program isn't going to immediately terminate
-	# so you don't leave files open
-	# the 'b' is necessary on Windows
-	# it prevents \x1a, Ctrl-z, from ending the stream prematurely
-	# and also stops Python converting to / from different line terminators
-	# On other platforms, it has no effect
-
 	for filename in inputfile:
 		print "converting %s to csv" % filename
 		in_txt = csv.reader(open(filename, "rb"), delimiter = '\t')
